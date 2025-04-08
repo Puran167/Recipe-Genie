@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Zone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- Login/Sign Up Buttons -->
+<div class="auth-buttons">
+  <button id="open-login">Login</button>
+  <button id="open-signup">Sign Up</button>
+</div>
+
+<!-- Login Popup -->
+<div id="login-popup" class="popup hidden">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('login-popup')">&times;</span>
+    <h2>Login</h2>
+    <form id="login-form" onsubmit="login(); return false;">
+      <input type="text" id="login-username" name="username" placeholder="Username" required />
+      <input type="password" id="login-password" name="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- Sign Up Popup -->
+<div id="signup-popup" class="popup hidden">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('signup-popup')">&times;</span>
+    <h2>Sign Up</h2>
+    <form id="signup-form" onsubmit="signup(); return false;">
+      <input type="text" id="signup-username" name="username" placeholder="Username" required />
+      <input type="password" id="signup-password" name="password" placeholder="Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+
+    <div class="container">
+      <!-- Inside <div class="dark-mode-toggle"> -->
+
+        <div class="dark-mode-toggle"><label>
+  <input type="checkbox" id="dark-toggle" />
+
+</label>
+
+      </div>
+      <header>
+        <div class="title-box">
+          <h1>🍴 Recipe Genie</h1>
+        </div>
+      </header>
+      
+      
+      <main>
+        
+        <div class="form-container">
+          <form id="recipe-generator-form">
+            <input
+              type="text"
+              placeholder="Craving something? Let the kitchen genie help!"
+              autofocus
+              required
+              autocomplete="off"
+              class="instructions"
+              id="user-instructions"
+            />
+            <button type="button" id="voice-btn">🎤</button>
+            <input type="submit" class="submit-button" />
+          </form>
+          <div class="hint">Feeling hungry? Try ideas like 'Mac & Cheese', 'Cupcakes', or 'Smoothies' 🍓</div>
+        </div>
+
+<div class="recipe hidden" id="recipe" contenteditable="true"></div>
+
+<button onclick="saveAsFavorite()" class="custom-btn">Save as Favorite</button>
+<button id="download-btn" class="custom-btn">Download PDF</button>
+
+<div id="favoritesList" class="favorites-section" style="margin-top: 20px;"></div>
+
+      </main>
+      <footer class="footer">
+        <div class="footer-content">
+          <h3>🍽️ Recipe Genie</h3>
+          <p>"Bringing magic to your kitchen, one recipe at a time."</p>
+          <p class="developer">Crafted with 💖 by <strong>Puran and Kunal</strong></p>
+        </div>
+      </footer>
+      
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
